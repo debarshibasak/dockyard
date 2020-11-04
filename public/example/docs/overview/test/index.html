@@ -151,8 +151,8 @@ pre {
     <div class="row">
         <div class="col-lg-3 col-sm-3">
             <ul class="list-group ">
-                <li id="architectural_details" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Architectural Details</li>
-<li id="prerequisites" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Prerequisites</li>
+                <li id="prerequisites" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Prerequisites</li>
+<li id="architectural_details" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Architectural Details</li>
 
             </ul>
         </div>
@@ -205,17 +205,9 @@ pre {
 
 <script>
 
-    var activated = 'architectural_details';
-var advent = {id: 'architectural_details'};
-var content={'architectural_details':`<h1>Architectural details</h1>
-
-<p>Firstly, Download the release binary. For downloading, join our list of private beta.</p>
-
-<p>Once you have the binary. Execute</p>
-
-<pre><code class="language-$xslt">$ ./inventorize
-</code></pre>
-`,'prerequisites':`<h1>Pre-requisites</h1>
+    var activated = 'prerequisites';
+var advent = {id: 'prerequisites'};
+var content={'prerequisites':`<h1>Pre-requisites</h1>
 
 <h3>Supported Systems and Environments</h3>
 
@@ -244,6 +236,14 @@ var content={'architectural_details':`<h1>Architectural details</h1>
 <li>Loadbalancers</li>
 <li>Storage Provisioners</li>
 </ul>
+`,'architectural_details':`<h1>Architectural details</h1>
+
+<p>Firstly, Download the release binary. For downloading, join our list of private beta.</p>
+
+<p>Once you have the binary. Execute</p>
+
+<pre><code class="language-$xslt">$ ./inventorize
+</code></pre>
 `}
 
     var darkModeEnabled = false;

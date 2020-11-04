@@ -63,7 +63,7 @@ func main() {
 	fmt.Println("completed")
 
 	if *serve {
-		if err := server.New("docs", ":10000").Start(); err != nil {
+		if err := server.New(documentmanager.OutputDir, ":10000").Start(); err != nil {
 			panic(err)
 		}
 	}

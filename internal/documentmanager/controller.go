@@ -12,6 +12,8 @@ import (
 	"strings"
 )
 
+const OutputDir = "public"
+
 type DocumentManager struct {
 	location string
 }
@@ -21,7 +23,7 @@ func New(location string) *DocumentManager {
 }
 
 func (d *DocumentManager) ListAllFiles() (map[string]map[string]string, error) {
-	 return render(d.location, "docs")
+	return render(d.location, OutputDir)
 }
 
 type FileLocation struct {
