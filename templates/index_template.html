@@ -10,9 +10,7 @@
     <!-- Font Awesome icons (free version)-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
             crossorigin="anonymous"></script>
-    <script src="../js/script.js"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
-
 
 
     <style>
@@ -78,28 +76,24 @@
 <br />
 <br />
 
-<div id="contact-us" class=" p-3" style="background-color: #fafafa">
+<div id="contact-us" class="p-3 footer">
 
     <br />
     <br />
     <main role="main" class="container">
         <div class="row w-100 p-3">
             <div class="col-lg-7 col-sm-12">
-                <h6>Adaptive</h6>
-                <p class="lead">The Continuous delivery and application deployment platform</p>
-                <p>info@adaptive.live</p>
-
+                <small> <b>Generated with Dockyard</b></small>
+                <small> <p>The deadsimple knowlege acquisition platform.</p></small>
+                <small> <p>From Adaptive [info@adaptive.live]</p></small>
+                <a href="https://github.com/adaptive-scale/dockyard"><i class="fab fa-github"></i></a>
             </div>
             <div class="col-lg-2">
 
             </div>
             <div class="col-lg-3">
-
             </div>
-
-
         </div>
-
     </main>
 
     <br />
@@ -117,11 +111,9 @@
 
         if(enable) {
             darkModeEnabled = true;
-            document.getElementById('pagetop').style.backgroundColor = "#000000";
-            document.getElementById('pagetop').style.color = "white";
-            document.getElementById('contact-us').style.backgroundColor = "#111";
-            document.getElementById('contact-us').style.color = "white";
-
+            document.getElementById('pagetop').classList.add('dark');
+            document.getElementById('contact-us').classList.remove('footer');
+            document.getElementById('contact-us').classList.add('dark-footer');
 
             var x = document.getElementsByClassName('list');
 
@@ -131,19 +123,15 @@
         } else {
             darkModeEnabled = false;
 
-            document.getElementById('pagetop').style.backgroundColor = "white";
-            document.getElementById('pagetop').style.color = "black";
-            document.getElementById('contact-us').style.backgroundColor = "#f5f5f5";
-            document.getElementById('contact-us').style.color = "black";
+            document.getElementById('pagetop').classList.remove('dark');
+            document.getElementById('contact-us').classList.remove('dark-footer');
+            document.getElementById('contact-us').classList.add('footer');
 
             var x = document.getElementsByClassName('list');
             for(var i = 0; i < x.length; i++){
                 x[i].classList.remove('dark');
             }
-
-
         }
-
     }
 
     function activate(ad){

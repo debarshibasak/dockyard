@@ -18,7 +18,7 @@ func (s *Server) Start() error {
 	fs := http.FileServer(http.Dir("./"+s.location))
 	http.Handle("/", fs)
 
-	log.Println("Listening on ", s.port)
+	log.Println("Listening on http://localhost"+s.port)
 	err := http.ListenAndServe(s.port, nil)
 	if err != nil {
 		return err
