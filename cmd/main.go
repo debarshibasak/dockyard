@@ -63,7 +63,7 @@ func main() {
 	fmt.Println("completed")
 
 	if *serve {
-		if err := server.New("public", ":10000").Start(); err != nil {
+		if err := server.New("docs", ":10000").Start(); err != nil {
 			panic(err)
 		}
 	}

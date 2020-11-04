@@ -21,7 +21,7 @@ func New(location string) *DocumentManager {
 }
 
 func (d *DocumentManager) ListAllFiles() (map[string]map[string]string, error) {
-	 return render(d.location, "public")
+	 return render(d.location, "docs")
 }
 
 type FileLocation struct {
