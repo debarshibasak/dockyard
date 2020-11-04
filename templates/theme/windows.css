@@ -1,0 +1,79 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;1,400&display=swap');
+
+body {
+    background-color: #f5f5f5;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h5 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+sup {
+    font-family: 'Montserrat', sans-serif;
+}
+
+pre {
+    background-color: #FFFDD0;
+    color: blue;
+    padding: 10px;
+}
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.btn-purple-color {
+    background-color: #5e72e4;
+    color: #fff;
+    border: 0px;
+}
+
+.btn-purple-color:hover {
+    background-color: #3d55df;
+    color: #fff;
+}
+
+.btn-request {
+    background-color: #9CCDFF;
+    border: #fff;
+}
+
+.btn-request:hover {
+    background-color: #88B7E6;
+    color: #000;
+    border: #fff;
+}
+
+.linkedin {
+    text-decoration: none;
+}
+
+.linkedin:visited {
+    text-decoration: none;
+}
+
+.linkedin:active {
+    text-decoration: none;
+}
+
+#product {
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+}
+
+.dark {
+    background-color: #2c3e50;
+}

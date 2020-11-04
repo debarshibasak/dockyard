@@ -29,15 +29,18 @@ type FileLocation struct {
 	Render map[string]string
 }
 
-func render(location string, root string) (map[string]map[string]string, error) {
+func render(location, root string) (map[string]map[string]string, error) {
 
 	fileLoc := map[string]map[string]string{}
+	renderedJS := map[string]string{}
 
+	var currentPath string
 	err := filepath.Walk(location,
 		func(filePath string, info os.FileInfo, err error) error {
 
-			renderedJS := map[string]string{}
-
+			if currentPath != path.Join(root, filepath.Dir(filePath)) {
+				renderedJS = map[string]string{}
+			}
 			if err != nil {
 				return err
 			}
@@ -47,29 +50,9 @@ func render(location string, root string) (map[string]map[string]string, error) 
 					md, _ := ioutil.ReadFile(filePath)
 					output := markdown.ToHTML(md, nil, nil)
 					renderedJS[strings.ReplaceAll(info.Name(), filepath.Ext(info.Name()), "")] = string(output)
-					fileLoc[path.Join(root, filepath.Dir(info.Name()))] = renderedJS
-				}
-			} else {
-				f, err := ioutil.ReadDir(filePath)
-				if err != nil {
-					panic(err)
-				}
-
-				for _, fa := range f {
-					if fa.IsDir() {
-						join := path.Join(filePath, fa.Name())
-						a, err := render(join, path.Join(root, fa.Name()))
-						if err != nil {
-							panic(err)
-						}
-
-						for k, v := range a {
-
-							fmt.Println("path - ", k)
-
-							fileLoc[k] = v
-						}
-					}
+					join := path.Join(root, filepath.Dir(filePath))
+					currentPath = join
+					fileLoc[join] = renderedJS
 				}
 			}
 
@@ -135,7 +118,7 @@ var content=` + start
 
 }
 
-func (d *DocumentManager) GenerateIndexHTML(menu string, js string) (string, error) {
+func (d *DocumentManager) GenerateIndexHTML(theme, branding, menu, js string) (string, error) {
 
 	fmt.Println("==> generating template")
 
@@ -149,10 +132,17 @@ func (d *DocumentManager) GenerateIndexHTML(menu string, js string) (string, err
 		return "", err
 	}
 
+	theme = "templates/theme/" + theme + ".css"
+	themeInfo, err := asset.Asset(theme)
+	if err != nil {
+		return "", err
+	}
 
 	tmpl := strings.ReplaceAll(string(newTemplate), "<MENU />", menu)
 	tmpl = strings.ReplaceAll(tmpl, "<CSS />", string(css))
 	tmpl = strings.ReplaceAll(tmpl, "<JS />", js)
+	tmpl = strings.ReplaceAll(tmpl, "<Brand />", branding)
+	tmpl = strings.ReplaceAll(tmpl, "<Theme />", string(themeInfo))
 
 	fmt.Println("==> generating index.html length=", len(tmpl))
 

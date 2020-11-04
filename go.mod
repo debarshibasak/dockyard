@@ -1,4 +1,4 @@
-module github.com/adaptive-scale/inventorize/dockyard
+module github.com/adaptive-scale/dockyard
 
 go 1.14
 

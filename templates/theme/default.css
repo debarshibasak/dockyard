@@ -1,0 +1,81 @@
+
+@import url(https://fonts.googleapis.com/css2?family=Oxygen:wght@700&family=Raleway:wght@600&family=Roboto:wght@300;400&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Righteous&display=swap);
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h5 {
+    font-family: 'Oxygen', sans-serif;
+}
+
+a {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+}
+
+sup {
+    font-family: 'MuseoModerno', cursive;
+}
+
+pre {
+    background-color: #000;
+    color: #BFFF00;
+    border-radius: 4px;
+    padding: 10px;
+}
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.btn-purple-color {
+    background-color: #5e72e4;
+    color: #fff;
+    border: 0px;
+}
+
+.btn-purple-color:hover {
+    background-color: #3d55df;
+    color: #fff;
+}
+
+.btn-request {
+    background-color: #9CCDFF;
+    border: #fff;
+}
+
+.btn-request:hover {
+    background-color: #88B7E6;
+    color: #000;
+    border: #fff;
+}
+
+.linkedin {
+    text-decoration: none;
+}
+
+.linkedin:visited {
+    text-decoration: none;
+}
+
+.linkedin:active {
+    text-decoration: none;
+}
+
+#product {
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+}
+
+.dark {
+    background-color: black;
+}

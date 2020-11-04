@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/adaptive-scale/dockyard/internal/documentmanager"
+	"github.com/adaptive-scale/dockyard/internal/server"
 	"io/ioutil"
 	"os"
 	"path"
@@ -12,11 +13,15 @@ import (
 func main() {
 
 	location := flag.String("location", "", "location of documentation")
-	//branding := flag.String("branding", "", "branding of documentation")
+	branding := flag.String("branding", "Acme", "branding of documentation")
+	theme := flag.String("theme", "default", "only default supported at this point")
+	serve := flag.Bool("serve", false, "generate and serve the documentation")
 	flag.Parse()
 
 	if *location == "" {
-		fmt.Println("location is empty")
+		fmt.Println("=========================")
+		fmt.Println("==> location is empty <==")
+		fmt.Println("=========================")
 		os.Exit(1)
 	}
 
@@ -29,11 +34,11 @@ func main() {
 	}
 
 	for r, f := range files {
-
+		fmt.Println("-------------------------------")
 		fmt.Println("==> Now generating "+r)
 		start, menu, active := dManager.GetMenu(f)
 		js := dManager.GenerateJS(start, active)
-		tmpl, err := dManager.GenerateIndexHTML(menu, js)
+		tmpl, err := dManager.GenerateIndexHTML(*theme, *branding, menu, js)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)
@@ -50,15 +55,16 @@ func main() {
 			fmt.Println(err)
 			os.Exit(1)
 		}
+
+		fmt.Println("")
+
 	}
 
-
-
 	fmt.Println("completed")
-}
 
-type Index struct {
-	JS   string
-	CSS  string
-	Menu string
+	if *serve {
+		if err := server.New("public", ":10000").Start(); err != nil {
+			panic(err)
+		}
+	}
 }
