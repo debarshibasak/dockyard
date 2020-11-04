@@ -2,7 +2,7 @@ package documentmanager
 
 import (
 	"fmt"
-	"github.com/adaptive-scale/inventorize/dockyard/asset"
+	"github.com/adaptive-scale/dockyard/asset"
 	"github.com/gomarkdown/markdown"
 	"io/ioutil"
 	"os"

@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/adaptive-scale/inventorize/dockyard/internal/documentmanager"
+	"github.com/adaptive-scale/dockyard/internal/documentmanager"
 	"io/ioutil"
 	"os"
 	"path"
@@ -12,6 +12,7 @@ import (
 func main() {
 
 	location := flag.String("location", "", "location of documentation")
+	//branding := flag.String("branding", "", "branding of documentation")
 	flag.Parse()
 
 	if *location == "" {
@@ -38,7 +39,11 @@ func main() {
 			os.Exit(1)
 		}
 
-		os.MkdirAll(r, os.FileMode(0700))
+		err = os.MkdirAll(r, os.FileMode(0700))
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
 
 		err = ioutil.WriteFile(path.Join(r, "index.html"), []byte(tmpl), os.FileMode(0777))
 		if err != nil {
