@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>dockyard</title>
+    <title>Dockyard</title>
     <!-- Font Awesome icons (free version)-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
             crossorigin="anonymous"></script>
@@ -123,7 +123,7 @@ pre {
 <body id="pagetop">
 
 <div id="navigator" class="d-flex flex-column flex-md-row flex-xs-row align-items-center p-3 px-md-4 px-xs-4  mb-3">
-    <h5 class="my-0 mr-md-auto mr-sm-auto font-weight-normal"><b>dockyard</b></h5>
+    <h5 class="my-0 mr-md-auto mr-sm-auto font-weight-normal"><b>Dockyard</b></h5>
     <nav class="my-2 my-md-0 mr-md-3 d-none d-sm-block">
         <!-- <a class="p-2 text-dark" href="#feature">Products</a>
           <a class="p-2 text-dark" href="#about">About</a> -->
@@ -151,8 +151,8 @@ pre {
     <div class="row">
         <div class="col-lg-3 col-sm-3">
             <ul class="list-group ">
-                <li id="overview_of_features" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Overview Of Features</li>
-<li id="getting_started" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Getting Started</li>
+                <li id="feature_overview" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Feature Overview</li>
+<li id="quickstart" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Quickstart</li>
 <li id="architectural_details" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Architectural Details</li>
 <li id="prerequisites" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Prerequisites</li>
 <li id="integrations" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Integrations</li>
@@ -208,16 +208,51 @@ pre {
 
 <script>
 
-    var activated = 'overview_of_features';
-var advent = {id: 'overview_of_features'};
-var content={'overview_of_features':`<h1>Overview of feature</h1>
-`,'getting_started':`<h1>Getting Started</h1>
+    var activated = 'feature_overview';
+var advent = {id: 'feature_overview'};
+var content={'feature_overview':`<h1>Feature Overview</h1>
 
-<p>Firstly, Download the release binary. For downloading, join our list of private beta.</p>
+<p>Dockyard is super simple static site generator. Get your documentation up and hosted in seconds.</p>
 
-<p>Once you have the binary. Execute</p>
+<h3>Simple</h3>
 
-<pre><code class="language-$xslt">$ ./inventorize
+<p>Zero dependencies. Just download the binary and run it on the list of markdown files.</p>
+
+<h3>Lightweight</h3>
+
+<p>Dockyard generates a simple html, css and vanilla JS code to generate the static site.</p>
+
+<h3>Documentation-aware</h3>
+
+<p>Genesis of dockyard comes from platform documentation.
+Born out of laziness, procastination and zero motivation to write documentation, Idea is to convert already existing markdown files into a static, beautiful site.</p>
+
+<h3>Themed</h3>
+
+<p>There are predefined themes and custom themes that can be injected into the generated site.</p>
+`,'quickstart':`<h1>Quickstart</h1>
+
+<p>Dockyard is a static site generator that takes <em>Markdown</em> and uses predefined layouts to generate the static sites.
+It is valuable for generating documentation, information sites, simple landing pages etc.</p>
+
+<h2>Prerequisites</h2>
+
+<ul>
+<li>Dockyard binary</li>
+</ul>
+
+<p>And&hellip; Nothing else.</p>
+
+<h2>Instructions</h2>
+
+<h3>Download dockyard</h3>
+
+<pre><code class="language-$xslt">$ curl --location docs --branding dockyard
+</code></pre>
+
+<h3>Run it on .md files</h3>
+
+<pre><code class="language-$xslt">$ dockyard --location docs --branding dockyard
 </code></pre>
 `,'architectural_details':`<h1>Architectural details</h1>
 

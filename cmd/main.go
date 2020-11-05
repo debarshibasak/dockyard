@@ -33,6 +33,12 @@ func main() {
 		os.Exit(1)
 	}
 
+	err = os.RemoveAll(documentmanager.OutputDir)
+	if err != nil {
+		fmt.Println("error while removing outdir")
+		os.Exit(1)
+	}
+
 	for r, f := range files {
 		fmt.Println("-------------------------------")
 		fmt.Println("==> Now generating "+r)
