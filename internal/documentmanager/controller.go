@@ -3,6 +3,7 @@ package documentmanager
 import (
 	"fmt"
 	"github.com/adaptive-scale/dockyard/asset"
+	"github.com/adaptive-scale/dockyard/internal/configuration"
 	"github.com/gomarkdown/markdown"
 	"io/ioutil"
 	"os"
@@ -15,15 +16,23 @@ import (
 const OutputDir = "public"
 
 type DocumentManager struct {
-	location string
+	config *configuration.Configuration
 }
 
-func New(location string) *DocumentManager {
-	return &DocumentManager{location:location}
+func New(config *configuration.Configuration) *DocumentManager {
+	return &DocumentManager{config:config}
 }
 
-func (d *DocumentManager) ListAllFiles() (map[string]map[string]string, error) {
-	return render(d.location, OutputDir)
+func (d *DocumentManager) ListAllFiles() map[string]map[string]string {
+	return render(d.config.Location, OutputDir)
+}
+
+func (d *DocumentManager) Reset() {
+	err := os.RemoveAll(OutputDir)
+	if err != nil {
+		fmt.Println("error while removing outdir")
+		os.Exit(1)
+	}
 }
 
 type FileLocation struct {
@@ -31,7 +40,7 @@ type FileLocation struct {
 	Render map[string]string
 }
 
-func render(location, root string) (map[string]map[string]string, error) {
+func render(location, root string) map[string]map[string]string {
 
 	fileLoc := map[string]map[string]string{}
 	renderedJS := map[string]string{}
@@ -60,7 +69,12 @@ func render(location, root string) (map[string]map[string]string, error) {
 
 			return nil
 		})
-	return fileLoc, err
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+
+	return fileLoc
 }
 
 type Content struct {
@@ -111,44 +125,53 @@ func (d *DocumentManager) GetMenu(menuAndContent map[string]string) (string,stri
 	 return start, menu, activated
 }
 
-func (d *DocumentManager) GenerateJS(start string, activated string) string {
+func (d *DocumentManager) GenerateJS(menuAndContent map[string]string) (string, string) {
+
+	start, menu, activated := d.GetMenu(menuAndContent)
+
 	fmt.Println("==> generating content")
 
 	return `var activated = '`+activated+`';
 var advent = {id: '`+activated+`'};
-var content=` + start
+var content=` + start, menu
 
 }
 
-func (d *DocumentManager) GenerateIndexHTML(theme, branding, menu, js string) (string, error) {
+func (d *DocumentManager) GenerateIndexHTML( menu, js string) string {
 
 	fmt.Println("==> generating template")
 
 	css, err := asset.Asset("templates/style.css")
 	if err != nil {
-		return "", err
+		fmt.Println(err)
+		os.Exit(1)
+		return ""
 	}
 
 	newTemplate, err := asset.Asset("templates/index_template.html")
 	if err != nil {
-		return "", err
+		fmt.Println(err)
+		os.Exit(1)
+		return ""
 	}
 
-	theme = "templates/theme/" + theme + ".css"
+	theme := "templates/theme/" + d.config.Theme + ".css"
 	themeInfo, err := asset.Asset(theme)
 	if err != nil {
-		return "", err
+		fmt.Println(err)
+		os.Exit(1)
+		return ""
 	}
 
 	tmpl := strings.ReplaceAll(string(newTemplate), "<MENU />", menu)
 	tmpl = strings.ReplaceAll(tmpl, "<CSS />", string(css))
 	tmpl = strings.ReplaceAll(tmpl, "<JS />", js)
-	tmpl = strings.ReplaceAll(tmpl, "<Brand />", branding)
+	tmpl = strings.ReplaceAll(tmpl, "<Brand />", d.config.Branding)
 	tmpl = strings.ReplaceAll(tmpl, "<Theme />", string(themeInfo))
 
 	fmt.Println("==> generating index.html length=", len(tmpl))
 
-	return tmpl, nil
+	return tmpl
 }
 
 func beautify(key string) string {

@@ -1,7 +1,5 @@
-# Dockyard
+# Github page tutorial
 
 Super simple documentation generating tooling.
 
-## Installation
-
-[more](https://adaptive-scale.github.io/dockyard/public/docs)
+[more information](https://adaptive-scale.github.io/dockyard/public/docs)

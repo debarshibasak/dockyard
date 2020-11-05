@@ -1,0 +1,46 @@
+package configuration
+
+import (
+	"errors"
+	"flag"
+	"fmt"
+	"os"
+)
+
+type Configuration struct {
+	Location string
+	Branding string
+	Theme string
+	Serve bool
+}
+
+
+func GetConfiguration() *Configuration {
+
+	location := flag.String("location", "", "location of documentation")
+	branding := flag.String("branding", "Acme", "branding of documentation")
+	theme := flag.String("theme", "default", "only default supported at this point")
+	serve := flag.Bool("serve", false, "generate and serve the documentation")
+	flag.Parse()
+
+	if *location == "" {
+		err := errors.New(`
+=========================
+==> location is empty <==
+=========================
+`)
+
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
+
+	}
+
+	return &Configuration{
+		Branding:*branding,
+		Location:*location,
+		Theme:*theme,
+		Serve:*serve,
+	}
+}
