@@ -321,9 +321,11 @@ It is valuable for generating documentation, information sites, simple landing p
 
 <p>Here we download the dockyard binary, then download some sample markdown files, run the generator on those files and serve them.</p>
 
-<h4>Download dockyard</h4>
+<p><em>This quickstart is for Mac</em></p>
 
-<pre><code class="language-$xslt">curl -o https://github.com
+<h5>Download dockyard</h5>
+
+<pre><code class="language-$xslt">curl -L -o dockyard https://github.com/adaptive-scale/dockyard/releases/download/v0.1.1/dockyard_macos
 chmod +x dockyard
 mv dockyard /usr/local/bin
 dockyard -h
@@ -331,8 +333,8 @@ dockyard -h
 
 <h4>Download sample Markdown pages</h4>
 
-<pre><code>curl -o data.tar.gz https://github.com
-tar -xvzf data.tar.gz
+<pre><code>curl -L -o data.tar.gz curl -L -o dockyard https://github.com/adaptive-scale/dockyard/releases/download/v0.1.1/docs.zip
+unzip docs.zip
 </code></pre>
 
 <h4>Run it on .md files</h4>
@@ -342,6 +344,60 @@ tar -xvzf data.tar.gz
 
 <p>To go, <code>http://localhost:10000</code></p>
 `,'detailed_overview':`<h1>Detailed Overview</h1>
+
+<h3>Downloading Dockyard for Linux</h3>
+
+<p><strong>Download dockyard</strong></p>
+
+<pre><code class="language-$xslt">curl -L -o dockyard https://github.com/adaptive-scale/dockyard/releases/download/v0.1.1/dockyard_linux
+chmod +x dockyard
+sudo mv dockyard /usr/bin
+dockyard -h
+</code></pre>
+
+<p>*Download sample Markdown pages**</p>
+
+<pre><code>curl -L -o data.tar.gz curl -L -o dockyard https://github.com/adaptive-scale/dockyard/releases/download/v0.1.1/docs.zip
+unzip docs.zip
+</code></pre>
+
+<h3>Downloading Dockyard for MacOS</h3>
+
+<p><strong>Download dockyard</strong></p>
+
+<pre><code class="language-$xslt">curl -L -o dockyard https://github.com/adaptive-scale/dockyard/releases/download/v0.1.1/dockyard_macos
+chmod +x dockyard
+mv dockyard /usr/local/bin
+dockyard -h
+</code></pre>
+
+<p><strong>Download sample Markdown pages</strong></p>
+
+<pre><code>curl -L -o data.tar.gz curl -L -o dockyard https://github.com/adaptive-scale/dockyard/releases/download/v0.1.1/docs.zip
+unzip docs.zip
+</code></pre>
+
+<p><strong>Run it on .md files</strong></p>
+
+<pre><code class="language-$xslt">dockyard --location docs --branding myowncompany --serve
+</code></pre>
+
+<p>Go to <a href="http://localhost:10000">http://localhost:10000</a></p>
+
+<h3>Downloading Dockyard for Windows</h3>
+
+<p>Go to <a href="https://github.com/adaptive-scale/dockyard/releases/download/v0.1.1/dockyard.exe">here</a></p>
+
+<p><strong>Run it on .md files</strong></p>
+
+<p>Go to directory where you downloaded the binary.</p>
+
+<p>Open your Command prompt. Run -</p>
+
+<pre><code class="language-$xslt">dockyard.exe --location docs --branding myowncompany --serve
+</code></pre>
+
+<p>Go to <a href="http://localhost:10000">http://localhost:10000</a></p>
 
 <h3>Building side menu</h3>
 
