@@ -33,7 +33,7 @@ dockyard -h
 **Download sample Markdown pages**
 
 ```
-curl -L -o https://github.com/adaptive-scale/dockyard/releases/download/v0.1.1/docs.zip
+curl -L -o docs.zip https://github.com/adaptive-scale/dockyard/releases/download/v0.1.1/docs.zip
 unzip docs.zip
 ```
 
