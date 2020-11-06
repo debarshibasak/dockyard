@@ -34,3 +34,5 @@ tar -xvzf data.tar.gz
 ```$xslt
 dockyard --location docs --branding myowncompany --serve
 ```
+
+To go, `http://localhost:10000`

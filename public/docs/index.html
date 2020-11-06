@@ -339,6 +339,8 @@ tar -xvzf data.tar.gz
 
 <pre><code class="language-$xslt">dockyard --location docs --branding myowncompany --serve
 </code></pre>
+
+<p>To go, <code>http://localhost:10000</code></p>
 `,'detailed_overview':`<h1>Detailed Overview</h1>
 
 <h3>Building side menu</h3>
@@ -376,6 +378,32 @@ doc/002_second_item.md
 
 </code></pre>
 `,'tutorial_for_demo':`<h1>Github pages tutorials</h1>
+
+<h3>Setup your Github Page</h3>
+
+<ul>
+<li>For a given project, go to settings.</li>
+<li>Go to the section, <em>GitHub Pages</em></li>
+<li>Choose your branch (default is <code>master</code>)</li>
+<li>Choose the folder (default is <code>/</code>)</li>
+</ul>
+
+<p>Note the location of published site.</p>
+
+<h3>Setting up Markdown files for Dockyard</h3>
+
+<p>Create a directory structure as mentioned in section <a href="#detailed_overview">Detailed Overview</a> with the markdown files inside the project directory.</p>
+
+<p>Run -</p>
+
+<pre><code class="language-$xslt">dockyard --location &lt;document-location&gt; --branding myowncompany
+</code></pre>
+
+<p>Push the changes to remote Github repository.</p>
+
+<p>Go to <code>https://&lt;user-or-orgname&gt;.github.io/&lt;project&gt;/&lt;documentation-directory&gt;</code></p>
+
+<p>The newly deployed pages should be visible here.</p>
 `,'showcase':`<h1>Showcase</h1>
 
 <p>Following are some of the existing themes for dockyard.</p>
