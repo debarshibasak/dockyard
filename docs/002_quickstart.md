@@ -9,16 +9,30 @@ It is valuable for generating documentation, information sites, simple landing p
 
 `And... absolutely nothing else.`
 
+
+
 ### Instructions
+
+Here we download the dockyard binary, then download some sample markdown files, run the generator on those files and serve them. 
 
 #### Download dockyard
 
 ```$xslt
-$ curl --location docs --branding dockyard
+curl -o https://github.com
+chmod +x dockyard
+mv dockyard /usr/local/bin
+dockyard -h
+```
+
+#### Download sample Markdown pages
+
+```
+curl -o data.tar.gz https://github.com
+tar -xvzf data.tar.gz
 ```
 
 #### Run it on .md files
 
 ```$xslt
-$ dockyard --location docs --branding dockyard
+dockyard --location docs --branding myowncompany --serve
 ```

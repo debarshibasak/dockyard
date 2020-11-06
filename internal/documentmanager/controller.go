@@ -30,7 +30,34 @@ func (d *DocumentManager) ListAllFiles() map[string]map[string]string {
 func (d *DocumentManager) Reset() {
 	err := os.RemoveAll(OutputDir)
 	if err != nil {
-		fmt.Println("error while removing outdir")
+		fmt.Println("error while removing outdir - "+err.Error())
+		os.Exit(1)
+	}
+}
+
+func (d *DocumentManager) Generate() {
+	d.Reset()
+
+	for r, f := range d.ListAllFiles() {
+		js, menu := d.GenerateJS(f)
+		tmpl := d.GenerateIndexHTML(menu, js)
+		mkdir(r)
+		write(r, tmpl)
+	}
+}
+
+func write(r string, tmpl string) {
+	err := ioutil.WriteFile(path.Join(r, "index.html"), []byte(tmpl), os.FileMode(0777))
+	if err != nil {
+		fmt.Println("Error while writing -"+ err.Error())
+		os.Exit(1)
+	}
+}
+
+func mkdir( r string) {
+	err := os.MkdirAll(r, os.FileMode(0700))
+	if err != nil {
+		fmt.Println("Error - "+err.Error())
 		os.Exit(1)
 	}
 }
@@ -46,7 +73,7 @@ func render(location, root string) map[string]map[string]string {
 	renderedJS := map[string]string{}
 
 	var currentPath string
-	err := filepath.Walk(location,
+	filepath.Walk(location,
 		func(filePath string, info os.FileInfo, err error) error {
 
 			if currentPath != path.Join(root, filepath.Dir(filePath)) {
@@ -69,10 +96,6 @@ func render(location, root string) map[string]map[string]string {
 
 			return nil
 		})
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
 
 	return fileLoc
 }

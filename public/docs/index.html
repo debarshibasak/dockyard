@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Acme</title>
+    <title>Dockyard</title>
     <!-- Font Awesome icons (free version)-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
             crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
 
 
@@ -123,7 +126,7 @@ pre {
 <body id="pagetop">
 
 <div id="navigator" class="d-flex flex-column flex-md-row flex-xs-row align-items-center p-3 px-md-4 px-xs-4  mb-3">
-    <h5 class="my-0 mr-md-auto mr-sm-auto font-weight-normal"><b>Acme</b></h5>
+    <h5 class="my-0 mr-md-auto mr-sm-auto font-weight-normal"><b>Dockyard</b></h5>
     <nav class="my-2 my-md-0 mr-md-3 d-none d-sm-block">
         <!-- <a class="p-2 text-dark" href="#feature">Products</a>
           <a class="p-2 text-dark" href="#about">About</a> -->
@@ -149,94 +152,21 @@ pre {
 <main role="main" class="container ">
     <div class="row">
         <div class="col-lg-3 col-sm-3">
-            <ul class="list-group ">
-                var activated = 'feature_overview';
-var advent = {id: 'feature_overview'};
-var content={'feature_overview':`<h1>Feature Overview</h1>
+            <nav class="navbar navbar-expand-lg navbar-light bg-default">
+                <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="list-group" style="min-width: 230px;">
+                <li id="feature_overview" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Feature Overview</li>
+<li id="quickstart" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Quickstart</li>
+<li id="detailed_overview" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Detailed Overview</li>
+<li id="tutorial_for_demo" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Tutorial For Demo</li>
+<li id="showcase" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Showcase</li>
 
-<p>Dockyard is super simple static site generator. Get your documentation up and hosted in seconds.</p>
-
-<h3>Simple</h3>
-
-<p>Zero dependencies. Just download the binary and run it on the list of markdown files.</p>
-
-<h3>Lightweight</h3>
-
-<p>Dockyard generates a simple html, css and vanilla JS code to generate the static site.</p>
-
-<h3>Documentation-aware</h3>
-
-<p>Genesis of dockyard comes from platform documentation.
-Born out of laziness, procastination and zero motivation to write documentation, Idea is to convert already existing markdown files into a static, beautiful site.</p>
-
-<h3>Themed</h3>
-
-<p>There are predefined themes and custom themes that can be injected into the generated site.</p>
-`,'quickstart':`<h1>Quickstart</h1>
-
-<p>Dockyard is a static site generator that takes <em>Markdown</em> and uses predefined layouts to generate the static sites.
-It is valuable for generating documentation, information sites, simple landing pages etc.</p>
-
-<h3>Prerequisites</h3>
-
-<ul>
-<li>Dockyard binary</li>
-</ul>
-
-<p><code>And... absolutely nothing else.</code></p>
-
-<h3>Instructions</h3>
-
-<h4>Download dockyard</h4>
-
-<pre><code class="language-$xslt">$ curl --location docs --branding dockyard
-</code></pre>
-
-<h4>Run it on .md files</h4>
-
-<pre><code class="language-$xslt">$ dockyard --location docs --branding dockyard
-</code></pre>
-`,'detailed_overview':`<h1>Pre-requisites</h1>
-
-<h3>Supported Systems and Environments</h3>
-
-<p><strong>Operation Systems</strong></p>
-
-<ul>
-<li>Ubuntu</li>
-<li>Redhat</li>
-<li>Fedora</li>
-<li>Centos</li>
-<li>Windows</li>
-<li>Macos</li>
-</ul>
-
-<p><strong>Containerized Environments</strong></p>
-
-<ul>
-<li>Docker</li>
-<li>Kubernetes</li>
-</ul>
-
-<h4>Kubernetes pre-requisites</h4>
-
-<ul>
-<li>Kubectl</li>
-<li>Loadbalancers</li>
-<li>Storage Provisioners</li>
-</ul>
-`,'tutorial':`<h1>Github pages tutorials</h1>
-`,'showcase':`<h1>Showcase</h1>
-
-<p>Following are some of the existing themes for dockyard.</p>
-
-<h3>Themes</h3>
-
-<p>[default]()</p>
-
-<p>[windowns]()</p>
-`}
             </ul>
+                </div>
+            </nav>
         </div>
         <div class="col-lg-9 col-sm-9">
             <div id="info" >
@@ -287,12 +217,114 @@ It is valuable for generating documentation, information sites, simple landing p
 
 <script>
 
-    <li id="feature_overview" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Feature Overview</li>
-<li id="quickstart" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Quickstart</li>
-<li id="detailed_overview" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Detailed Overview</li>
-<li id="tutorial" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Tutorial</li>
-<li id="showcase" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Showcase</li>
+    var activated = 'feature_overview';
+var advent = {id: 'feature_overview'};
+var content={'feature_overview':`<h1>Feature Overview</h1>
 
+<p>Dockyard is super simple static site generator. Get your documentation up and hosted in seconds.</p>
+
+<h4>Simple</h4>
+
+<p>Zero dependencies. Just download the binary and run it on the list of markdown files.</p>
+
+<h4>Lightweight</h4>
+
+<p>Dockyard generates a simple html, css and vanilla JS code to generate the static site.</p>
+
+<h4>Documentation-aware</h4>
+
+<p>Genesis of dockyard comes from platform documentation.
+Born out of laziness, procastination and zero motivation to write documentation, Idea is to convert already existing markdown files into a static, beautiful site.</p>
+
+<h4>Deploy your pages on Github</h4>
+
+<p>Easiest way to host your project documentation on github. See <code>tutorial_for_demo</code></p>
+
+<h4>Themed</h4>
+
+<p>There are predefined themes and custom themes that can be injected into the generated site.</p>
+`,'quickstart':`<h1>Quickstart</h1>
+
+<p>Dockyard is a static site generator that takes <em>Markdown</em> and uses predefined layouts to generate the static sites.
+It is valuable for generating documentation, information sites, simple landing pages etc.</p>
+
+<h3>Prerequisites</h3>
+
+<ul>
+<li>Dockyard binary</li>
+</ul>
+
+<p><code>And... absolutely nothing else.</code></p>
+
+<h3>Instructions</h3>
+
+<p>Here we download the dockyard binary, then download some sample markdown files, run the generator on those files and serve them.</p>
+
+<h4>Download dockyard</h4>
+
+<pre><code class="language-$xslt">curl -o https://github.com
+chmod +x dockyard
+mv dockyard /usr/local/bin
+dockyard -h
+</code></pre>
+
+<h4>Download sample Markdown pages</h4>
+
+<pre><code>curl -o data.tar.gz https://github.com
+tar -xvzf data.tar.gz
+</code></pre>
+
+<h4>Run it on .md files</h4>
+
+<pre><code class="language-$xslt">dockyard --location docs --branding myowncompany --serve
+</code></pre>
+`,'detailed_overview':`<h1>Detailed Overview</h1>
+
+<h3>Building side menu</h3>
+
+<p>You can build hierarchical directory structure that automatically detects the files and generates the html files.</p>
+
+<p><strong><em>For instance</em></strong></p>
+
+<p>You can have a directory called  - <code>doc</code>. To add a menu item create a file <code>&lt;sequence&gt;_&lt;menu_item&gt;.md</code> under the directory <code>doc</code>.
+The menu items are ordered by sequence number and then lexicologically.
+A <code>&lt;sequence&gt;</code> could be something like <code>001</code> or anything that could be used to sort the menu item.</p>
+
+<p>The file could look something as follows -</p>
+
+<pre><code>doc
+doc/001_first_item.md
+doc/002_second_item.md
+</code></pre>
+
+<h3>Generating static pages</h3>
+
+<h3>Options</h3>
+
+<pre><code class="language-$xslt">
+  -branding string
+        branding of documentation (default &quot;Acme&quot;)
+  -location string
+        location of documentation
+  -serve
+        generate and serve the documentation
+  -theme string
+        only default supported at this point (default &quot;default&quot;)
+  -watch
+        watch for document change and regenerate when changed
+
+</code></pre>
+`,'tutorial_for_demo':`<h1>Github pages tutorials</h1>
+`,'showcase':`<h1>Showcase</h1>
+
+<p>Following are some of the existing themes for dockyard.</p>
+
+<h3>Themes</h3>
+
+<p>[default]()</p>
+
+<p>[windowns]()</p>
+`}
 
     var darkModeEnabled = false;
 

@@ -12,6 +12,7 @@ type Configuration struct {
 	Branding string
 	Theme string
 	Serve bool
+	Watch bool
 }
 
 
@@ -21,6 +22,7 @@ func GetConfiguration() *Configuration {
 	branding := flag.String("branding", "Acme", "branding of documentation")
 	theme := flag.String("theme", "default", "only default supported at this point")
 	serve := flag.Bool("serve", false, "generate and serve the documentation")
+	watch := flag.Bool("watch", false, "watch for document change and regenerate when changed")
 	flag.Parse()
 
 	if *location == "" {
@@ -42,5 +44,6 @@ func GetConfiguration() *Configuration {
 		Location:*location,
 		Theme:*theme,
 		Serve:*serve,
+		Watch:*watch,
 	}
 }
