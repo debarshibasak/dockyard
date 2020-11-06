@@ -18,14 +18,15 @@ func main() {
 	fmt.Println("completed")
 
 	var wait sync.WaitGroup
-	wait.Add(1)
 
 	if c.Watch {
+		wait.Add(1)
 
 		go dManager.Watch()
 	}
 
 	if c.Serve {
+		wait.Add(1)
 		go func() {
 			if err := server.New(documentmanager.OutputDir, ":10000").Start(); err != nil {
 				panic(err)

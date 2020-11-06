@@ -1,7 +1,7 @@
 # Detailed Overview
 
 
-### Downloading Dockyard for Linux
+#### Downloading Dockyard for Linux
 
 **Download dockyard**
 
@@ -19,7 +19,7 @@ curl -L -o data.tar.gz curl -L -o dockyard https://github.com/adaptive-scale/doc
 unzip docs.zip
 ```
 
-### Downloading Dockyard for MacOS
+#### Downloading Dockyard for MacOS
 
 **Download dockyard**
 
@@ -45,7 +45,7 @@ dockyard --location docs --branding myowncompany --serve
 
 Go to http://localhost:10000
 
-### Downloading Dockyard for Windows
+#### Downloading Dockyard for Windows
 
 Go to [here](https://github.com/adaptive-scale/dockyard/releases/download/v0.1.1/dockyard.exe)
 
