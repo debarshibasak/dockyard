@@ -158,11 +158,7 @@ pre {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="list-group" style="min-width: 220px;">
-                <li id="feature_overview" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Feature Overview</li>
-<li id="quickstart" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Quickstart</li>
-<li id="detailed_overview" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Detailed Overview</li>
-<li id="tutorial_for_demo" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Tutorial For Demo</li>
-<li id="showcase" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Showcase</li>
+                <li id="notes" style="border: 0px; border-radius:6px;cursor: pointer;" class="list list-group-item" onclick="activate(this);">Notes</li>
 
             </ul>
                 </div>
@@ -217,168 +213,14 @@ pre {
 
 <script>
 
-    var activated = 'feature_overview';
+    var activated = 'notes';
    let url = window.location.href;
     url = url.split('#')[1];
     if(url != null){
         activated = url;
     }
 var advent = {id: activated};
-var content={'feature_overview':`<h1>Feature Overview</h1>
-
-<p>Dockyard is super simple static site generator. Get your documentation up and hosted in seconds.</p>
-
-<p>github/gitlab + markdown + dockyard = 🚀</p>
-
-<h4>Simple</h4>
-
-<p>Zero dependencies. Just download the binary and run it on the list of markdown files.</p>
-
-<h4>Lightweight</h4>
-
-<p>Dockyard generates a simple html, css and vanilla JS code to generate the static site.</p>
-
-<h4>Documentation-aware</h4>
-
-<p>Genesis of dockyard comes from platform documentation.
-Born out of laziness, procastination and zero motivation to write documentation, Idea is to convert already existing markdown files into a static, beautiful site.</p>
-
-<h4>Deploy your pages on Github</h4>
-
-<p>Easiest way to host your project documentation on github. See <a href="#tutorial_for_demo">Tutorial for demo</a>.</p>
-
-<h4>Themed</h4>
-
-<p>There are predefined themes and custom themes that can be injected into the generated site.</p>
-
-<h3>Inspiration</h3>
-
-<p>While trying to document and host in the most simplest way possible. I evaluated various solutions.
-When it comes to generating and managing static websites, following are the possible solutions out there.</p>
-
-<table>
-<thead>
-<tr>
-<th>Products</th>
-<th>Learning Curve</th>
-<th>Dependencies</th>
-<th>Themes</th>
-<th>Strategies to Host</th>
-<th>Language</th>
-<th>Target Audience</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Jerkyll</td>
-<td>yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Heroku, render,  netlify etc.</td>
-<td>Ruby</td>
-<td>Big orgs, Saas providers</td>
-</tr>
-
-<tr>
-<td>Hugo</td>
-<td>yes</td>
-<td>No</td>
-<td>Yes</td>
-<td>Heroku, render, netlify etc.</td>
-<td>Golang</td>
-<td>Big orgs, Saas providers</td>
-</tr>
-
-<tr>
-<td>Gatsby</td>
-<td>yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Heroku, render,  netlify etc.</td>
-<td>JS, React</td>
-<td>Big orgs, Saas providers</td>
-</tr>
-</tbody>
-</table>
-<p>Dockyard fits perfectly for sharing documentation. Whether it is sharing with your customers or within you team.
-The endgoal is to build a packing standard for sharing project/product documentation with vendors, customers, users etc,
-possibly embedded with the project/product.
-Prerequisites for using dockyard is markdown&rsquo;s understanding and some hacks described in <a href="#quickstart">Quickstart</a> and <a href="#detailed_overview">Detailed Overview</a>.</p>
-
-<p>You can master markdown if you follow <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">this</a>.</p>
-`,'quickstart':`<h1>Quickstart</h1>
-
-<p>Dockyard is a static site generator that takes <em>Markdown</em> and uses predefined layouts to generate the static sites.
-It is valuable for generating documentation, information sites, simple landing pages etc.</p>
-
-<h3>Prerequisites</h3>
-
-<ul>
-<li>Dockyard binary</li>
-<li>Understanding of Markdown language</li>
-</ul>
-
-<h3>Instructions</h3>
-
-<p>Here we download the dockyard binary, then download some sample markdown files, run the generator on those files and serve them.</p>
-
-<h4>Download dockyard</h4>
-
-<pre><code class="language-$xslt">curl -o https://github.com
-chmod +x dockyard
-mv dockyard /usr/local/bin
-dockyard -h
-</code></pre>
-
-<h4>Download sample Markdown pages</h4>
-
-<pre><code>curl -o data.tar.gz https://github.com
-tar -xvzf data.tar.gz
-</code></pre>
-
-<h4>Run it on .md files</h4>
-
-<pre><code class="language-$xslt">dockyard --location docs --branding myowncompany --serve
-</code></pre>
-`,'detailed_overview':`<h1>Detailed Overview</h1>
-
-<h3>Building side menu</h3>
-
-<p>You can build hierarchical directory structure that automatically detects the files and generates the html files.</p>
-
-<p><strong><em>For instance</em></strong></p>
-
-<p>You can have a directory called  - <code>doc</code>. To add a menu item create a file <code>&lt;sequence&gt;_&lt;menu_item&gt;.md</code> under the directory <code>doc</code>.
-The menu items are ordered by sequence number and then lexicologically.
-A <code>&lt;sequence&gt;</code> could be something like <code>001</code> or anything that could be used to sort the menu item.</p>
-
-<p>The file could look something as follows -</p>
-
-<pre><code>doc
-doc/001_first_item.md
-doc/002_second_item.md
-</code></pre>
-
-<h3>Generating static pages</h3>
-
-<h3>Options</h3>
-
-<pre><code class="language-$xslt">
-  -branding string
-        branding of documentation (default &quot;Acme&quot;)
-  -location string
-        location of documentation
-  -serve
-        generate and serve the documentation
-  -theme string
-        only default supported at this point (default &quot;default&quot;)
-  -watch
-        watch for document change and regenerate when changed
-
-</code></pre>
-`,'tutorial_for_demo':`<h1>Github pages tutorials</h1>
-`,'showcase':`<h1>Showcase</h1>
+var content={'notes':`<h1>Showcase</h1>
 
 <p>Following are some of the existing themes for dockyard.</p>
 

@@ -6,9 +6,7 @@ It is valuable for generating documentation, information sites, simple landing p
 ### Prerequisites
 
 - Dockyard binary
-
-`And... absolutely nothing else.`
-
+- Understanding of Markdown language
 
 
 ### Instructions

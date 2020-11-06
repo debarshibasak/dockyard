@@ -57,7 +57,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="list-group" style="min-width: 230px;">
+            <ul class="list-group" style="min-width: 220px;">
                 <MENU />
             </ul>
                 </div>
@@ -114,6 +114,12 @@
 
     <JS />
 
+    function locationHashChanged( e ) {
+        window.location.reload()
+    }
+
+    window.onhashchange = locationHashChanged;
+
     var darkModeEnabled = false;
 
     function darkMode(enable){
@@ -146,9 +152,22 @@
     function activate(ad){
         document.getElementById('info').innerHTML = content[ad.id] == null ? "":content[ad.id]
         if(activated!=null){document.getElementById(activated).classList.remove('active')};document.getElementById(ad.id).classList.add('active'); activated=ad.id;
+        let inputs = document.getElementsByTagName('table');
+        for(var i = 0; i < inputs.length; i++) {
+
+            inputs[i].classList.add('table');
+            inputs[i].classList.add('responsive')
+        }
+
+        let bq = document.getElementsByTagName('blockquote');
+        for(var i = 0; i < bq.length; i++) {
+            bq[i].classList.add('blockquote');
+        }
     }
 
     activate(advent);
+
+
 
 
 

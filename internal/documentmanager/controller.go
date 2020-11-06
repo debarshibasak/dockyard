@@ -155,7 +155,12 @@ func (d *DocumentManager) GenerateJS(menuAndContent map[string]string) (string, 
 	fmt.Println("==> generating content")
 
 	return `var activated = '`+activated+`';
-var advent = {id: '`+activated+`'};
+   let url = window.location.href;
+    url = url.split('#')[1];
+    if(url != null){
+        activated = url;
+    }
+var advent = {id: activated};
 var content=` + start, menu
 
 }
