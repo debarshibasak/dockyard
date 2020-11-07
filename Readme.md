@@ -1,4 +1,4 @@
-# Github page tutorial
+# Dockyard
 
 Super simple documentation generating tooling.
 
