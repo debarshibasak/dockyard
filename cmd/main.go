@@ -28,7 +28,7 @@ func main() {
 	if c.Serve {
 		wait.Add(1)
 		go func() {
-			if err := server.New(documentmanager.OutputDir, ":10000").Start(); err != nil {
+			if err := server.New(documentmanager.OutputDir, c.Port).Start(); err != nil {
 				panic(err)
 			}
 		}()

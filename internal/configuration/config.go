@@ -13,6 +13,7 @@ type Configuration struct {
 	Theme string
 	Serve bool
 	Watch bool
+	Port string
 }
 
 
@@ -24,6 +25,7 @@ func GetConfiguration() *Configuration {
 	serve := flag.Bool("serve", false, "generate and serve the documentation")
 	watch := flag.Bool("watch", false, "watch for document change and regenerate when changed")
 	version := flag.Bool("version", false, "shows the version of the release")
+	port := flag.String("port", ":10000", "port where the documents are served")
 
 	flag.Parse()
 
@@ -52,5 +54,6 @@ func GetConfiguration() *Configuration {
 		Theme:*theme,
 		Serve:*serve,
 		Watch:*watch,
+		Port: *port,
 	}
 }
