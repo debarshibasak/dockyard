@@ -1,5 +1,7 @@
 # Dockyard
 
-Super simple documentation generating tooling.
+Super simple documentation generating tooling. 
 
-[more information](https://debarshibasak.github.io/dockyard/public/docs)
+
+
+[demo](https://debarshibasak.github.io/dockyard/public/docs)
