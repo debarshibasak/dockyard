@@ -86,7 +86,7 @@ func templatesIndex_templateHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/index_template.html", size: 5963, mode: os.FileMode(420), modTime: time.Unix(1604687721, 0)}
+	info := bindataFileInfo{name: "templates/index_template.html", size: 5963, mode: os.FileMode(420), modTime: time.Unix(1612903451, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -106,7 +106,7 @@ func templatesStyleCss() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/style.css", size: 149971, mode: os.FileMode(420), modTime: time.Unix(1604370193, 0)}
+	info := bindataFileInfo{name: "templates/style.css", size: 149971, mode: os.FileMode(420), modTime: time.Unix(1612903451, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -126,7 +126,7 @@ func templatesThemeDefaultCss() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/theme/default.css", size: 1553, mode: os.FileMode(420), modTime: time.Unix(1604456665, 0)}
+	info := bindataFileInfo{name: "templates/theme/default.css", size: 1553, mode: os.FileMode(420), modTime: time.Unix(1612903451, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -146,7 +146,7 @@ func templatesThemeWindowsCss() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/theme/windows.css", size: 1398, mode: os.FileMode(420), modTime: time.Unix(1604457292, 0)}
+	info := bindataFileInfo{name: "templates/theme/windows.css", size: 1398, mode: os.FileMode(420), modTime: time.Unix(1612903451, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
