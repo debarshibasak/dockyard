@@ -26,7 +26,7 @@ dockyard -h
 #### Download sample Markdown pages
 
 ```
-curl -L -o data.tar.gz curl -L -o dockyard https://github.com/adaptive-scale/dockyard/releases/download/v0.1.1/docs.zip
+curl -L -o data.tar.gz curl -L -o dockyard https://github.com/debarshibasak/dockyard/releases/download/v0.1.1/docs.tar.gz
 unzip docs.zip
 ```
 
