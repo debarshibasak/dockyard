@@ -2,4 +2,4 @@
 
 Super simple documentation generating tooling.
 
-[more information](https://debarshibasak.github.io/dockyard/dockyard/public/docs)
+[more information](https://debarshibasak.github.io/dockyard/public/docs)
