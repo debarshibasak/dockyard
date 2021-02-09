@@ -17,7 +17,7 @@ Here we download the dockyard binary, then download some sample markdown files, 
 ##### Download dockyard
 
 ```$xslt
-curl -L -o dockyard https://github.com/adaptive-scale/dockyard/releases/download/v0.1.1/dockyard_macos
+curl -L -o dockyard https://github.com/debarshibasak/dockyard/releases/download/v0.1.1/dockyard
 chmod +x dockyard
 mv dockyard /usr/local/bin
 dockyard -h
